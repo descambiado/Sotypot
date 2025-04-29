@@ -308,6 +308,17 @@
             }
         }
     </style>
+
+    <script>
+    window.onload = function() {
+      const hostname = window.location.hostname;
+      document.getElementById("kibana").href = `http://${hostname}:64297/kibana/`;
+      document.getElementById("spiderfoot").href = `http://${hostname}:64297/spiderfoot/`;
+      document.getElementById("map").href = `http://${hostname}:64297/map/`;
+      document.getElementById("cyberchef").href = `http://${hostname}:64297/cyberchef/`;
+      document.getElementById("elasticvue").href = `http://${hostname}:64297/elasticvue/`;
+    };
+    </script>
 </head>
 <body>
     <div id="particles-js"></div>
@@ -330,27 +341,27 @@
                 <h2 class="panel-title"><i class="fas fa-tools"></i> Herramientas</h2>
                 <ul class="link-list">
                     <li class="link-item">
-                        <a href="/map/" class="link" target="_blank">
+                        <a id="map" target="_blank">
                             <i class="fas fa-map-marked-alt"></i> Attack Map
                         </a>
                     </li>
                     <li class="link-item">
-                        <a href="/cyberchef/" class="link" target="_blank">
+                        <a id="cyberchef" target="_blank">
                             <i class="fas fa-utensils"></i> Cyberchef
                         </a>
                     </li>
                     <li class="link-item">
-                        <a href="/elasticvue/" class="link" target="_blank">
+                        <a id="elasticvue" target="_blank">
                             <i class="fas fa-search"></i> Elasticvue
                         </a>
                     </li>
                     <li class="link-item">
-                        <a href="/kibana/" class="link" target="_blank">
+                        <a id="kibana" target="_blank">
                             <i class="fas fa-chart-bar"></i> Kibana
                         </a>
                     </li>
                     <li class="link-item">
-                        <a href="/spiderfoot/" class="link" target="_blank">
+                        <a id="spiderfoot" target="_blank">
                             <i class="fas fa-spider"></i> Spiderfoot
                         </a>
                     </li>

@@ -4,6 +4,6 @@ services:
   sotypot-landing:
     build: .
     ports:
-      - "8080:80"
+      - "8888:80"
     restart: unless-stopped
     container_name: sotypot-landing

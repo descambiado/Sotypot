@@ -209,20 +209,21 @@
 
         /* FAQ Section */
         .faq-section {
-            margin-top: 30px;
+            margin-top: 50px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 960px;
         }
 
         .faq-item {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border-radius: 10px;
             overflow: hidden;
             background: rgba(0, 23, 56, 0.5);
+            border: 1px solid rgba(0, 180, 216, 0.3);
         }
 
         .faq-question {
-            padding: 15px;
+            padding: 15px 20px;
             background: rgba(0, 180, 216, 0.1);
             color: var(--primary);
             font-family: 'Orbitron', sans-serif;
@@ -231,26 +232,34 @@
             justify-content: space-between;
             align-items: center;
             font-size: clamp(1rem, 2.5vw, 1.2rem);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 180, 216, 0.2);
         }
 
         .faq-answer {
-            padding: 0 15px;
-            max-height: 0;
+            padding: 0 20px;
+            max-height: 0px;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
             font-size: clamp(0.9rem, 2.5vw, 1rem);
-            line-height: 1.5;
+            line-height: 1.6;
+            background: rgba(0, 23, 56, 0.7);
+            margin-bottom: 10px;
+            border-radius: 10px;
         }
 
         .faq-item.active .faq-answer {
-            padding: 15px;
-            max-height: 500px;
+            padding: -1px;
+            max-height: 1000px;
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             font-size: clamp(0.8rem, 2vw, 0.9rem);
             color: rgba(255, 255, 255, 0.6);
             position: fixed;
@@ -405,63 +414,183 @@
         </div>
 
         <!-- FAQ Section -->
-        <div class="faq-section">
-            <h2 class="panel-title"><i class="fas fa-question-circle"></i> Preguntas Frecuentes</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    ¿Qué es un honeypot?
-                    <i class="fas fa-chevron-down"></i>
+<div class="faq-section">
+    <h2 class="panel-title"><i class="fas fa-question-circle"></i> Preguntas Frecuentes</h2>
+    <p class="faq-intro">Encuentra respuestas a las preguntas más comunes sobre SotyPot</p>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <strong>1. ¿Qué es un honeypot?</strong>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Un honeypot es un sistema de seguridad diseñado para detectar, desviar o estudiar intentos de acceso no autorizado.</p>
+            <p>Actúa como señuelo para atraer a atacantes y analizar sus métodos, proporcionando una capa de protección adicional para redes y sistemas críticos.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <strong>2. ¿Para qué sirve SotyPot?</strong>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>SotyPot es una plataforma integral para la detección y análisis de amenazas cibernéticas.</p>
+            <p>Permite:</p>
+            <ul>
+                <li>Monitorizar ataques en tiempo real</li>
+                <li>Recopilar inteligencia sobre amenazas</li>
+                <li>Analizar patrones de ataque</li>
+                <li>Mejorar las defensas de seguridad de tu red</li>
+                <li>Documentar y reportar incidentes</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <strong>3. ¿Qué herramientas incluye SotyPot?</strong>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>La suite de herramientas incluye:</p>
+            <div class="tool-list">
+                <div class="tool-item">
+                    <strong>Attack Map</strong>
+                    <p>Visualización geográfica y temporal de intentos de ataque</p>
+                    <p></p>
                 </div>
-                <div class="faq-answer">
-                    Un honeypot es un sistema de seguridad diseñado para detectar, desviar o estudiar intentos de acceso no autorizado.
-                    Actúa como señuelo para atraer a atacantes y analizar sus métodos.
+                <div class="tool-item">
+                    <strong>Cyberchef</strong>
+                    <p>Herramienta de análisis y manipulación de datos</p>
+                    <p></p>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    ¿Para qué sirve SotyPot?
-                    <i class="fas fa-chevron-down"></i>
+                <div class="tool-item">
+                    <strong>Elasticvue</strong>
+                    <p>Interfaz gráfica para Elasticsearch y Kibana</p>
+                    <p></p>
                 </div>
-                <div class="faq-answer">
-                    SotyPot es una plataforma de honeypots que permite monitorear ataques en tiempo real, recolectar inteligencia
-                    sobre amenazas y mejorar las defensas de seguridad de tu red.
+                <div class="tool-item">
+                    <strong>Spiderfoot</strong>
+                    <p>Automatización de inteligencia de amenazas</p>
+                    <p></p>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    ¿Qué herramientas incluye?
-                    <i class="fas fa-chevron-down"></i>
+                <div class="tool-item">
+                    <strong>Dionaea</strong>
+                    <p>Honeypot para captura de malware</p>
+                    <p></p>
                 </div>
-                <div class="faq-answer">
-                    <ul>
-                        <li><strong>Attack Map:</strong> Visualización geográfica de ataques</li>
-                        <li><strong>Cyberchef:</strong> Herramienta de análisis de datos</li>
-                        <li><strong>Elasticvue:</strong> Interfaz para Elasticsearch</li>
-                        <li><strong>Kibana:</strong> Tableros de análisis de datos</li>
-                        <li><strong>Spiderfoot:</strong> Herramienta de inteligencia de amenazas</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    ¿Es seguro usar SotyPot?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    SotyPot está diseñado con múltiples capas de seguridad, pero debe implementarse en un entorno controlado
-                    ya que atrae actividad maliciosa. No se recomienda para redes de producción sin supervisión.
+                <div class="tool-item">
+                    <strong>Conpot</strong>
+                    <p>Honeypot especializado en control industrial</p>
+                    <p></p>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <strong>4. ¿Cómo se implementa SotyPot?</strong>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>La implementación se realiza mediante Docker y Docker Compose, lo que facilita:</p>
+            <ul>
+                <li>Despliegue rápido y sencillo</li>
+                <li>Actualizaciones automáticas</li>
+                <li>Escalabilidad según necesidades</li>
+                <li>Entorno aislado para cada servicio</li>
+            </ul>
+            <p>Recomendamos usar un entorno virtual o nube para su implementación.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <strong>5. ¿Qué requisitos técnicos necesita SotyPot?</strong>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Para un funcionamiento óptimo, SotyPot requiere:</p>
+            <div class="specs">
+                <div class="spec">
+                    <strong>Sistema Operativo:</strong> Linux (recomendado) o Windows
+                </div>
+                <div class="spec">
+                    <strong>Procesador:</strong> Dual Core o mejor
+                </div>
+                <div class="spec">
+                    <strong>Memoria:</strong> 4GB RAM mínimo (8GB recomendados)
+                </div>
+                <div class="spec">
+                    <strong>Almacenamiento:</strong> 50GB de espacio en disco
+                </div>
+                <div class="spec">
+                    <strong>Red:</strong> Conexión a internet para descargar imágenes Docker
+                </div>
+                <div class="spec">
+                    <strong>Software:</strong> Docker y Docker Compose instalados
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <strong>6. ¿Cómo se configura SotyPot?</strong>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>La configuración se realiza a través de:</p>
+            <ul>
+                <li>Parámetros en el docker-compose.yml</li>
+                <li>Configuración individual para cada servicio</li>
+                <li>Interfaz web para ajustes básicos</li>
+            </ul>
+            <p>Se proporcionan plantillas de configuración y documentación detallada para cada componente.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <strong>7. ¿Es seguro usar SotyPot?</strong>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>SotyPot está diseñado con múltiples capas de seguridad:</p>
+            <ul>
+                <li>Isolamiento de servicios en contenedores</li>
+                <li>Politicas de seguridad en Docker</li>
+                <li>Firewall integrado</li>
+                <li>Monitorización en tiempo real</li>
+            </ul>
+            <p>No obstante, debe implementarse en un entorno controlado y no recomendado para redes de producción sin supervisión.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <strong>8. ¿Dónde puedo encontrar la documentación?</strong>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>La documentación completa está disponible en:</p>
+            <ul>
+                <li><a href="https://github.com/DavidHernan3/Sotypot/blob/main/sotypot-landing/README.MD" target="_blank">README de SotyPot</a></li>
+                <li><a href="https://github.com/telekom-security/tpotce/blob/master/README.md" target="_blank">README de T-Pot</a></li>
+                <p>Documentación individual para cada herramienta incluida</p>
+            </ul>
+        </div>
+    </div>
+</div>
     </main>
 
     <footer class="footer">
         <p>SotyPot - Plataforma de honeypots para seguridad informática | © 2025 Todos los derechos reservados</p>
     </footer>
+
+    <script src="assets/js/faq.js" defer></script>
+
 </body>
 </html>
-                    

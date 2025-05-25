@@ -27,6 +27,7 @@ http://localhost:8888
 
 ## Estructura
 
+```
 sotypot-landing/
 ├── dist/
 │   ├── html/
@@ -35,6 +36,7 @@ sotypot-landing/
 │       └── nginx.conf      # Configuración del servidor
 ├── Dockerfile
 └── docker-compose.yml
+```
 
 ## Personalización
 Puedes editar libremente dist/html/index.html para adaptar la landing a tu gusto, incluyendo:

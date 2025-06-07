@@ -13,7 +13,10 @@ SotyPot incluye una página de bienvenida web personalizada que sirve como punto
 
 Una vez desplegado, la página está disponible en:
 
-http://localhost:8888
+### Importante
+
+Seguro: https://localhost:8443
+Inseguro: http://localhost:8888
 
 > Puedes exponer otro puerto si lo deseas, modificando el `docker-compose.yml`.
 
@@ -21,7 +24,7 @@ http://localhost:8888
 
 1. Clona este repositorio y navega a la carpeta `sotypot-landing`
 2. Lanza el contenedor con: `docker-compose up -d` dentro de sotypot-landing.
-3. Abre el navegador y accede a http://localhost:8888
+3. Abre el navegador y accede a http://localhost:8443
 
 
 

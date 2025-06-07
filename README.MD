@@ -1,148 +1,185 @@
-# SotyPot - Plataforma de Honeypots para ASIR
+# 🛡️ SotyPot - Plataforma de Honeypots para Entornos Educativos
 
 ![SotyPot Logo](tpotce-master/docker/nginx/dist/html/assets/img/logo.webp)
 
-SotyPot es una plataforma de honeypots basada en T-Pot CE, desarrollada por **@Davidhernan3** como proyecto de fin de grado para el ciclo formativo de ASIR (Administración de Sistemas Informáticos en Red).
+**SotyPot** es una plataforma educativa basada en honeypots, desarrollada por [@Davidhernan3](https://github.com/Davidhernan3) como parte de su Proyecto de Fin de Grado para el ciclo de **Administración de Sistemas Informáticos en Red (ASIR)**.
 
-## 📝 Sobre el Proyecto
+Está basada en **T-Pot CE**, una distribución de honeypots todo-en-uno, y adaptada para facilitar el aprendizaje, la observación y la simulación de ciberataques reales de forma segura.
 
-SotyPot es una modificación de [T-Pot CE](https://github.com/telekom-security/tpotce) adaptada con:
-- Interfaz web personalizada en español
-- Integración de herramientas adicionales  
-- Mejoras en visualización de datos
-- Optimización para entornos académicos
+---
 
-**Características principales:**
-- Más de 20 honeypots integrados
-- Panel de visualización con Kibana
-- Mapa de ataques en tiempo real
-- Herramientas de análisis de seguridad
-- Interfaz adaptada para uso educativo
+## 📌 Características Principales
 
-## ⚙️ Requisitos Técnicos
+- 🐍 Más de 20 honeypots activos (Cowrie, Dionaea, Wordpot, etc.)
+- 📊 Dashboards con Kibana preconfigurados
+- 🌐 Landing Page accesible por navegador
+- 🐳 Despliegue automatizado con Docker Compose
+- 🧪 Validado con herramientas ofensivas como Nmap, Hydra y Metasploit
+- 🇪🇸 Interfaz traducida y documentada en español
 
-| Componente | Requisito Mínimo |
-|------------|------------------|
-| CPU        | 4 núcleos        |
-| RAM        | 8GB              |  
-| Almacenamiento | 128GB SSD    |
-| SO         | Linux 64-bit     |
-| Conexión   | Internet sin filtros |
+---
+
+## ⚙️ Requisitos del Sistema
+
+| Componente     | Requisito mínimo           |
+|----------------|----------------------------|
+| CPU            | 4 núcleos                  |
+| RAM            | 8 GB                       |
+| Almacenamiento | 128 GB SSD                 |
+| SO             | Ubuntu Server 24.04.1 LTS |
+| Red            | Sin restricciones de puertos |
+
+---
 
 ## 🚀 Instalación Rápida
 
-1. **Prepara el sistema**:
-   ```bash
-   sudo apt update && sudo apt install -y curl
-   ```
+### 1. 📦 Preparar el sistema
 
-2. **Ejecuta el instalador**:
-   ```bash
-   env bash -c "$(curl -sL https://github.com/Davidhernan3/sotypot/raw/main/install.sh)"
-   ```
+```bash
+sudo apt update && sudo apt install -y curl
+```
 
-3. **Sigue las instrucciones** y reinicia el sistema cuando finalice.
+> 💡 Recomendado: entorno limpio de Ubuntu Server 24.04.1 64-bit
 
-## 🛠 Honeypots Integrados
+---
 
-SotyPot incluye los siguientes honeypots basados en T-Pot:
+### 2. 🛠 Ejecutar el instalador automático
 
-| Honeypot       | Protocolos       | Descripción                     |
-|----------------|------------------|---------------------------------|
-| Cowrie         | SSH, Telnet      | Emula sistemas Linux            |
-| Dionaea        | Múltiples        | Captura malware                 |
-| ElasticPot     | Elasticsearch    | Detecta escaneos ES             |
-| AdbHoney       | Android Debug    | Emula dispositivos Android      |
-| Wordpot        | HTTP             | Detecta escaneos WordPress      |
+```bash
+env bash -c "$(curl -sL https://github.com/Davidhernan3/sotypot/raw/main/install.sh)"
+```
 
-*(Lista completa disponible en la documentación técnica)*
+Esto descargará y configurará automáticamente todos los servicios y contenedores.
 
-## 🔧 Configuración Avanzada
+---
 
-### Personalización de Honeypots
-Para modificar la configuración de los honeypots:
-1. Edita los archivos YAML en `tpotce-master/docker/[nombre_honeypot]/`
-2. Reinicia el contenedor: `docker restart [nombre_contenedor]`
+### 3. 🔄 Finalizar
 
-### Variables de Entorno
-Puedes configurar:
-- `TPOT_FLAVOR`: Tipo de instalación (standard, mini, etc.)
-- `TPOT_OSTYPE`: Tipo de SO (linux, mac, win)
-- `LS_SSL_VERIFICATION`: Verificación SSL para Logstash
+- Reinicia el sistema si se solicita.
+- Accede a `https://<TU_IP>:64297` con las credenciales configuradas durante la instalación.
 
-Ejemplo:
+---
+
+### 4. 🌐 Landing Page
+
+- Navega a `http://<TU_IP>:8888` para acceder a la landing personalizada.
+- Si el puerto 8888 está en uso, edita `docker-compose.yml`.
+- Para relanzar:
+
+```bash
+cd sotypot-landing
+docker-compose up -d
+```
+
+---
+
+## 🐝 Honeypots Incluidos
+
+| Honeypot       | Protocolos       | Descripción                         |
+|----------------|------------------|-------------------------------------|
+| Cowrie         | SSH, Telnet      | Emula sistemas UNIX                 |
+| Dionaea        | SMB, HTTP, FTP   | Captura malware                     |
+| Elasticpot     | Elasticsearch    | Simula servicios ES vulnerables     |
+| AdbHoney       | Android Debug    | Honeypot para dispositivos Android  |
+| Wordpot        | HTTP             | Detecta escaneos de WordPress       |
+
+> 🔎 Lista completa disponible en `/tpotce-master/docker/`
+
+---
+
+## 🧩 Configuración Avanzada
+
+### Editar honeypots:
+
+```bash
+nano tpotce-master/docker/<honeypot>/docker-compose.yml
+docker restart <contenedor>
+```
+
+### Variables útiles:
+
 ```bash
 echo "TPOT_FLAVOR=standard" >> ~/tpotce/.env
+echo "TPOT_OSTYPE=linux" >> ~/tpotce/.env
 ```
+
+---
 
 ## 🐛 Solución de Problemas
 
-### Problemas Comunes
-1. **Contenedores no inician**:
-   - Verifica logs: `docker logs [nombre_contenedor]`
-   - Revisa conflictos de puertos: `netstat -tulnp`
+| Problema                     | Solución                                       |
+|-----------------------------|------------------------------------------------|
+| Kibana no carga             | Verifica Elasticsearch y reinicia contenedor   |
+| Landing en blanco (404)     | Asegura `index.html` en `dist/html/`           |
+| Puerto ocupado              | Cambia en `docker-compose.yml` y reinicia      |
+| IP dinámica cambia          | Asigna IP estática en `/etc/netplan`          |
 
-2. **Problemas de red**:
-   - Verifica que el firewall permite los puertos necesarios
-   - Comprueba que Docker tiene permisos de red
+---
 
-3. **Problemas de almacenamiento**:
-   - Los logs se almacenan en `~/tpotce/data`
-   - Configura rotación de logs si es necesario
+## ❓ Preguntas Frecuentes (FAQ)
 
-## ❓ FAQ de SotyPot
+**¿Cómo accedo a Kibana directamente?**  
+📍 `https://<tu-ip>:64297` – Credenciales establecidas durante la instalación
 
-**Q: ¿Cómo accedo a Kibana?**  
-A: https://[tu-ip]:64297 con credenciales de webuser
-
-**Q: ¿Cómo actualizo SotyPot?**  
-A: Ejecuta `~/tpotce/update.sh`
-
-**Q: ¿Dónde se almacenan los datos capturados?**  
-A: En Elasticsearch, accesible via Kibana
-
-**Q: ¿Cómo personalizo el dashboard?**  
-A: Exporta/importa objetos Kibana desde la interfaz
-
-## 🌐 Acceso Web
-
-Tras la instalación, accede a la interfaz web en:
-```
-https://<tu-ip>:64297
+**¿Cómo actualizo SotyPot?**  
+```bash
+cd ~/tpotce && sudo ./update.sh
 ```
 
-Credenciales:
-- Usuario: `webuser` (o el configurado)
-- Contraseña: La establecida durante la instalación
+**¿Dónde se almacenan los datos?**  
+📁 Logs en Elasticsearch, visibles en Kibana
 
-## 📚 Documentación Técnica
+**¿Cómo personalizo dashboards?**  
+Exporta/Importa desde la interfaz de Kibana
 
-Para detalles técnicos completos, consulta:
-- [Arquitectura del sistema](doc/architecture.png)
-- [Puertos requeridos](#puertos-requeridos)
-- [Configuración avanzada](#configuración)
+---
 
-## 👥 Créditos y Licencia
+## 🧭 Roadmap
 
-Este proyecto está basado en [T-Pot CE](https://github.com/telekom-security/tpotce) de Telekom Security, bajo licencia GPLv3.
+| Versión  | Estado      | Cambios clave                               
+|----------|-------------|---------------------------------------------|
+| 1.0      | ✅ Final    | Instalación y entorno básico
+| 1.2      | ✅ Beta     | Landing personalizada
+| 1.2.5    | ✅ Validada | Pruebas con Nmap, Hydra, Metasploit
+| 1.3      | ✅ Validada  | SSL + Auth
+| 1.5      | 🛠 En curso  | Dashboard dinámico + integración Grafana/elastic en Lading
+| 2.0      | 🚧 Futuro   | Sistema de alertas por Correo/Bot Telegram y API REST
+|----------|-------------|---------------------------------------------|
+---
 
-**Desarrollador principal**:  
-👨‍💻 David Hernández ([@Davidhernan3](https://github.com/Davidhernan3))  
-📧 contacto@davidhernandez.dev  
+## 🧪 Pruebas Técnicas Realizadas
 
-**Modificaciones principales**:
-- Interfaz web personalizada
-- Integración de herramientas adicionales
-- Documentación en español  
-- Optimizaciones para entornos educativos
+✅ Escaneo Nmap detectado por Suricata  
+✅ Ataques SSH detectados por Cowrie  
+✅ Peticiones HTTP registradas en Wordpot  
+✅ Escaneo con Nikto reflejado en Kibana  
+✅ Exploit Metasploit bloqueado y registrado  
+
+> 📄 Ver informe completo: [`SotyPot_Informe_Pruebas_Completo_18052025`](./SotyPot_Informe_Pruebas_Completo_18052025.pdf)
+
+---
+
+## 📚 Documentación y Recursos
+
+- [Tutorial de instalación paso a paso (PDF)](./Tutorial%20de%20Instalación%20y%20Configuración%20de%20SOTYPOT.pdf)
+- [Informe técnico y memoria del proyecto](./[VERSION%201.25%20BETA]%20SotyPot_%20Sistema%20de%20Detección%20y%20Registro%20de%20Ataques%20en%20Redes%20Empresariales.pdf)
+- [Repositorio base de T-Pot CE](https://github.com/telekom-security/tpotce)
+
+---
+
+## 👨‍💻 Autor
+
+**David Hernández Jiménez**  
+📧 [fp_hernandezdavid@ciudadjardin.org](mailto:fp_hernandezdavid@ciudadjardin.org)  
+🔗 [@Davidhernan3](https://github.com/Davidhernan3)
+
+---
 
 ## 📄 Licencia
 
-```
-Copyright (C) 2025 David Hernández
-Copyright (C) 2024 Telekom Security
+```text
+Este proyecto está bajo la licencia:
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
 
-Este programa es software libre: puedes redistribuirlo y/o modificarlo
-bajo los términos de la GNU General Public License publicada por
-la Free Software Foundation, ya sea la versión 3 de la Licencia, o
-(a tu elección) cualquier versión posterior.
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+```

@@ -6,8 +6,14 @@ FROM nginx:alpine
 COPY dist/html/ /usr/share/nginx/html/
 COPY dist/conf/nginx.conf /etc/nginx/nginx.conf
 
-# Expone el puerto 80 dentro del contenedor
-EXPOSE 80
+# Copia archivo .htpasswd para autenticación básica
+COPY dist/htpasswd/.htpasswd /etc/nginx/.htpasswd
+
+# Copia certificados SSL (asegúrate que existan en dist/certs)
+COPY dist/certs/ /etc/nginx/certs/
+
+# Exponer puertos HTTP y HTTPS
+EXPOSE 80 443
 
 # Comando para iniciar Nginx en primer plano
 CMD ["nginx", "-g", "daemon off;"]

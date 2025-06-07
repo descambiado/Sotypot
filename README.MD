@@ -106,13 +106,14 @@ echo "TPOT_OSTYPE=linux" >> ~/tpotce/.env
 ---
 
 ## 🐛 Solución de Problemas
-
-| Problema                     | Solución                                       |
+|-----------------------------|------------------------------------------------|
+| Problema                    | Solución                                       |
 |-----------------------------|------------------------------------------------|
 | Kibana no carga             | Verifica Elasticsearch y reinicia contenedor   |
 | Landing en blanco (404)     | Asegura `index.html` en `dist/html/`           |
 | Puerto ocupado              | Cambia en `docker-compose.yml` y reinicia      |
-| IP dinámica cambia          | Asigna IP estática en `/etc/netplan`          |
+| IP dinámica cambia          | Asigna IP estática en `/etc/netplan`           |
+|-----------------------------|------------------------------------------------|
 
 ---
 
@@ -136,15 +137,17 @@ Exporta/Importa desde la interfaz de Kibana
 
 ## 🧭 Roadmap
 
-| Versión  | Estado      | Cambios clave                               
-|----------|-------------|---------------------------------------------|
-| 1.0      | ✅ Final    | Instalación y entorno básico
-| 1.2      | ✅ Beta     | Landing personalizada
-| 1.2.5    | ✅ Validada | Pruebas con Nmap, Hydra, Metasploit
-| 1.3      | ✅ Validada  | SSL + Auth
-| 1.5      | 🛠 En curso  | Dashboard dinámico + integración Grafana/elastic en Lading
-| 2.0      | 🚧 Futuro   | Sistema de alertas por Correo/Bot Telegram y API REST
-|----------|-------------|---------------------------------------------|
+|----------|-------------|------------------------------------------------------------|
+| Versión  | Estado      | Cambios clave
+|----------|-------------|------------------------------------------------------------|
+| 1.0      | ✅ Final    | Instalación y entorno básico                               |
+| 1.2      | ✅ Beta     | Landing personalizada                                      |
+| 1.2.5    | ✅ Validada | Pruebas con Nmap, Hydra, Metasploit                        |
+| 1.3      | ✅ Validada | SSL + Auth                                                 |
+| 1.4      | 🚧 Futuro   | Sistema de alertas por Correo/Bot Telegram y API REST      |
+| 1.5      | 🚧 Futuro   | Dashboard dinámico + integración Grafana/elastic en Lading |
+|----------|-------------|------------------------------------------------------------|
+
 ---
 
 ## 🧪 Pruebas Técnicas Realizadas

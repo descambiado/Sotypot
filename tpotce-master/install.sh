@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-myINSTALL_NOTIFICATION="### Instalando paquetes requeridos ..."
+myINSTALL_NOTIFICATION="### Now installing required packages ..."
 myUSER=$(whoami)
 myTPOT_CONF_FILE="/home/${myUSER}/tpotce/.env"
 myPACKAGES_DEBIAN="ansible apache2-utils cracklib-runtime wget"
@@ -76,16 +76,16 @@ case ${myCURRENT_DISTRIBUTION} in
     echo
     if ! command -v sudo >/dev/null;
       then
-        echo "### ‘sudo‘ no está instalado. Para continuar necesitas proporcionar la contraseña de ‘root‘"
-        echo "### o presiona CTRL-C para instalar ‘sudo‘ manualmente y agregar tu usuario a los sudoers."
+        echo "### ‘sudo‘ is not installed. To continue you need to provide the ‘root‘ password"
+        echo "### or press CTRL-C to manually install ‘sudo‘ and add your user to the sudoers."
         echo
         su -c "apt -y update && \
                NEEDRESTART_SUSPEND=1 apt -y install sudo ${myPACKAGES_DEBIAN} && \
                /usr/sbin/usermod -aG sudo ${myUSER} && \
                echo '${myUSER} ALL=(ALL:ALL) ALL' | tee /etc/sudoers.d/${myUSER} >/dev/null && \
                chmod 440 /etc/sudoers.d/${myUSER}"
-        echo "### Necesitamos sudo para Ansible, ingresa la contraseña de sudo ..."
-        sudo echo "### ... privilegios de sudo obtenidos para Ansible."
+        echo "### We need sudo for Ansible, please enter the sudo password ..."
+        sudo echo "### ... sudo for Ansible acquired."
         echo
       else
         sudo apt update
@@ -142,12 +142,12 @@ sudo -n true > /dev/null 2>&1
 if [ $? -eq 1 ];
   then
     myANSIBLE_BECOME_OPTION="--ask-become-pass"
-    echo "### No se obtuvieron privilegios de sudo, configurando opción de Ansible a ${myANSIBLE_BECOME_OPTION}."
-    echo "### Ansible pedirá la ‘BECOME password‘ que normalmente es tu contraseña de sudo."
+    echo "### ‘sudo‘ not acquired, setting ansible become option to ${myANSIBLE_BECOME_OPTION}."
+    echo "### Ansible will ask for the ‘BECOME password‘ which is typically the password you ’sudo’ with."
     echo
   else
     myANSIBLE_BECOME_OPTION="--become"
-    echo "### Privilegios de sudo obtenidos, configurando opción de Ansible a ${myANSIBLE_BECOME_OPTION}."
+    echo "### ‘sudo‘ acquired, setting ansible become option to ${myANSIBLE_BECOME_OPTION}."
     echo
 fi
 
@@ -160,75 +160,75 @@ ANSIBLE_LOG_PATH=${HOME}/install_tpot.log ansible-playbook ${myANSIBLE_TPOT_PLAY
 # Something went wrong
 if [ ! $? -eq 0 ];
   then
-    echo "### Ocurrió un error con el Playbook, revisa la salida y/o el archivo install_tpot.log para más detalles."
-    echo "### Abortando."
+    echo "### Something went wrong with the Playbook, please review the output and / or install_tpot.log for clues."
+    echo "### Aborting."
     echo
     exit 1
   else
-    echo "### Playbook ejecutado exitosamente."
+    echo "### Playbook was successful."
     echo
 fi
 
 # Ask for T-Pot Installation Type
 echo
-echo "### Elija su tipo de instalación T-Pot:"
-echo "### (C)olmena - Instalación estándar HIVE."
-echo "###             Incluye todo para una configuración distribuida con sensores."
-echo "### (S)ensor  - Instalación de sensor T-Pot."
-echo "###             Optimizado para instalación distribuida, sin WebUI, Elasticsearch ni Kibana."
-echo "### (L)LM     - Instalación LLM."
-echo "###             Usa honeypots basados en LLM: Beelzebub y Galah."
-echo "###             Requiere Ollama (recomendado) o suscripción a ChatGPT."
-echo "### M(i)ni    - Instalación Mini."
-echo "###             Ejecuta 30+ honeypots con pocos demonios."
-echo "### (M)óvil   - Instalación Mobile."
-echo "###             Incluye todo para T-Pot Mobile (disponible por separado)."
-echo "### (T)arpit  - Instalación Tarpit."
-echo "###             Alimenta datos continuamente a atacantes, bots y escáneres."
-echo "###             También ejecuta un honeypot de Denegación de Servicio (ddospot)."
+echo "### Choose your T-Pot type:"
+echo "### (H)ive   - T-Pot Standard / HIVE installation."
+echo "###            Includes also everything you need for a distributed setup with sensors."
+echo "### (S)ensor - T-Pot Sensor installation."
+echo "###            Optimized for a distributed installation, without WebUI, Elasticsearch and Kibana."
+echo "### (L)LM    - T-Pot LLM installation."
+echo "###            Uses LLM based honeypots Beelzebub & Galah."
+echo "###            Requires Ollama (recommended) or ChatGPT subscription."
+echo "### M(i)ni   - T-Pot Mini installation."
+echo "###            Run 30+ honeypots with just a couple of honeypot daemons."
+echo "### (M)obile - T-Pot Mobile installation."
+echo "###            Includes everything to run T-Pot Mobile (available separately)."
+echo "### (T)arpit - T-Pot Tarpit installation."
+echo "###            Feed data endlessly to attackers, bots and scanners."
+echo "###            Also runs a Denial of Service Honeypot (ddospot)."
 echo
 while true; do
-  read -p "### Tipo de instalación? (c/s/l/i/m/t) " myTPOT_TYPE
+  read -p "### Install Type? (h/s/l/i/m/t) " myTPOT_TYPE
   case "${myTPOT_TYPE}" in
-    c|C)
+    h|H)
       echo
-      echo "### Instalando T-Pot estándar / HIVE."
+      echo "### Installing T-Pot Standard / HIVE."
       myTPOT_TYPE="HIVE"
       cp ${HOME}/tpotce/compose/standard.yml ${HOME}/tpotce/docker-compose.yml
       myINFO=""
       break ;;
     s|S)
       echo
-      echo "### Instalando Sensor T-Pot."
+      echo "### Installing T-Pot Sensor."
       myTPOT_TYPE="SENSOR"
       cp ${HOME}/tpotce/compose/sensor.yml ${HOME}/tpotce/docker-compose.yml
-      myINFO="### Asegúrate de implementar llaves SSH en este SENSOR y deshabilitar la autenticación por contraseña SSH.
-### En el HIVE ejecuta el script tpotce/deploy.sh para unir este SENSOR al HIVE."
+      myINFO="### Make sure to deploy SSH keys to this SENSOR and disable SSH password authentication.
+### On HIVE run the tpotce/deploy.sh script to join this SENSOR to the HIVE."
       break ;;
     l|L)
       echo
-      echo "### Instalando T-Pot LLM."
+      echo "### Installing T-Pot LLM."
       myTPOT_TYPE="HIVE"
       cp ${HOME}/tpotce/compose/llm.yml ${HOME}/tpotce/docker-compose.yml
-      myINFO="Asegúrate de configurar el archivo .env con los ajustes de Ollama/ChatGPT."
+      myINFO="Make sure to adjust the T-Pot config file (.env) for Ollama / ChatGPT settings."
       break ;;
     i|I)
       echo
-      echo "### Instalando T-Pot Mini."
+      echo "### Installing T-Pot Mini."
       myTPOT_TYPE="HIVE"
       cp ${HOME}/tpotce/compose/mini.yml ${HOME}/tpotce/docker-compose.yml
       myINFO=""
       break ;;
     m|M)
       echo
-      echo "### Instalando T-Pot Móvil."
+      echo "### Installing T-Pot Mobile."
       myTPOT_TYPE="MOBILE"
       cp ${HOME}/tpotce/compose/mobile.yml ${HOME}/tpotce/docker-compose.yml
       myINFO=""
       break ;;
     t|T)
       echo
-      echo "### Instalando T-Pot Tarpit."
+      echo "### Installing T-Pot Tarpit."
       myTPOT_TYPE="HIVE"
       cp ${HOME}/tpotce/compose/tarpit.yml ${HOME}/tpotce/docker-compose.yml
       myINFO=""
@@ -248,12 +248,12 @@ if [ "${myTPOT_TYPE}" == "HIVE" ];
 	while [ 1 != 2 ];
 	  do
 	    myOK=""
-	    read -rp "### Ingrese su nombre de usuario web: " myWEB_USER
+	    read -rp "### Enter your web user name: " myWEB_USER
 	    myWEB_USER=$(echo $myWEB_USER | tr -cd "[:alnum:]_.-")
-	    echo "### Nombre de usuario: ${myWEB_USER}"
+	    echo "### Your username is: ${myWEB_USER}"
 	    while [[ ! "${myOK}" =~ [YyNn] ]];
 	      do
-	        read -rp "### ¿Es correcto? (y/n) " myOK
+	        read -rp "### Is this correct? (y/n) " myOK
 	      done
 	    if [[ "${myOK}" =~ [Yy] ]] && [ "$myWEB_USER" != "" ];
 	      then
@@ -273,14 +273,14 @@ if [ "${myTPOT_TYPE}" == "HIVE" ];
 	    echo
 	    while [ "${myWEB_PW}" == "pass1"  ] || [ "${myWEB_PW}" == "" ]
 	      do
-	        read -rsp "### Ingrese contraseña para el usuario web: " myWEB_PW
+	        read -rsp "### Enter password for your web user: " myWEB_PW
 	        echo
 	      done
-	    read -rsp "### Repita la contraseña del usuario web: " myWEB_PW2
+	    read -rsp "### Repeat password you your web user: " myWEB_PW2
 	    echo
 	    if [ "${myWEB_PW}" != "${myWEB_PW2}" ];
 	      then
-	        echo "### Las contraseñas no coinciden."
+	        echo "### Passwords do not match."
 	        myWEB_PW="pass1"
 	        myWEB_PW2="pass2"
 	    fi
@@ -289,7 +289,7 @@ if [ "${myTPOT_TYPE}" == "HIVE" ];
 	      then
 	        while [[ ! "${myOK}" =~ [YyNn] ]];
 	          do
-	            read -rp "### ¿Mantener contraseña insegura? (y/n) " myOK
+	            read -rp "### Keep insecure password? (y/n) " myOK
 	          done
 	        if [[ "${myOK}" =~ [Nn] ]] || [ "$myWEB_PW" == "" ];
 	          then
@@ -302,7 +302,7 @@ if [ "${myTPOT_TYPE}" == "HIVE" ];
 	done
 
 	# Write username and password to T-Pot config file
-	echo "### Creando usuario y contraseña codificados en base64 para el archivo de configuración: ${myTPOT_CONF_FILE}"
+	echo "### Creating base64 encoded htpasswd username and password for T-Pot config file: ${myTPOT_CONF_FILE}"
 	myWEB_USER_ENC=$(htpasswd -b -n "${myWEB_USER}" "${myWEB_PW}")
     myWEB_USER_ENC_B64=$(echo -n "${myWEB_USER_ENC}" | base64 -w0)
     
@@ -311,19 +311,19 @@ if [ "${myTPOT_TYPE}" == "HIVE" ];
 fi
 
 # Pull docker images
-echo "### Descargando imágenes de Docker ..."
+echo "### Now pulling images ..."
 sudo docker compose -f /home/${myUSER}/tpotce/docker-compose.yml pull
 echo
 
 # Show running services
-echo "### Verifique posibles conflictos de puertos con honeypots."
-echo "### Aunque SSH está configurado, otros servicios como"
-echo "### SMTP, HTTP, etc. podrían impedir el inicio de Sotypot y T-Pot."
+echo "### Please review for possible honeypot port conflicts."
+echo "### While SSH is taken care of, other services such as"
+echo "### SMTP, HTTP, etc. might prevent T-Pot from starting."
 echo
 sudo grc netstat -tulpen
 echo
 
 # Done
-echo "### Instalación completada. Reinicie el sistema y reconéctese via SSH al puerto tcp/64295."
+echo "### Done. Please reboot and re-connect via SSH on tcp/64295."
 echo "${myINFO}"
 echo

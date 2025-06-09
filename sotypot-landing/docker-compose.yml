@@ -5,6 +5,6 @@ services:
     build: .
     ports:
       - "8888:80"    # HTTP (redirige a HTTPS)
-      - "8443:443"   # HTTPS seguro con auth básica
+      - "8887:443"   # HTTPS seguro con auth básica
     container_name: sotypot-landing
     restart: unless-stopped

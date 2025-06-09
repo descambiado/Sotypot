@@ -2,6 +2,7 @@
 
 # Crear carpeta htpasswd si no existe
 mkdir -p dist/htpasswd
+sudo chmod +x create-setup.sh
 
 # Crear archivo .htpasswd con usuario sotypot y contraseña sotypot!
 htpasswd -bc dist/htpasswd/.htpasswd sotypot sotypot!

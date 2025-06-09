@@ -1,6 +1,6 @@
 # 🛡️ SotyPot - Plataforma de Honeypots para Entornos Educativos
 
-![SotyPot Logo](tpotce-master/docker/nginx/dist/html/assets/img/logo.webp)
+![SotyPot Logo](https://i.imgur.com/bLFfnu3.png)
 
 **SotyPot** es una plataforma educativa basada en honeypots, desarrollada por [@Davidhernan3](https://github.com/Davidhernan3) como parte de su Proyecto de Fin de Grado para el ciclo de **Administración de Sistemas Informáticos en Red (ASIR)**.
 

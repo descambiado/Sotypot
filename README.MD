@@ -144,7 +144,7 @@ Exporta/Importa desde la interfaz de Kibana
 | 1.2      | ✅ Beta     | Landing personalizada                                      |
 | 1.2.5    | ✅ Validada | Pruebas con Nmap, Hydra, Metasploit                        |
 | 1.3      | ✅ Validada | SSL + Auth                                                 |
-| 1.4      | 🚧 Futuro   | Documentacion Español + Sistema de alertas por Correo      |
+| 1.4      | ✅ Validada | Documentacion Español + Sistema de alertas por Correo      |
 | 1.5      | 🚧 Futuro   | Dashboard dinámico + integración Grafana/elastic en Lading |
 |----------|-------------|------------------------------------------------------------|
 

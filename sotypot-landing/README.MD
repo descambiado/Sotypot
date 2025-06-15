@@ -40,6 +40,7 @@ sotypot-landing/
 │       └── nginx.conf      # Configuración del servidor
 ├── Dockerfile
 └── docker-compose.yml
+└── create-setup.sh
 ```
 
 ## Personalización

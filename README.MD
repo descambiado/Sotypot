@@ -165,7 +165,7 @@ Exporta/Importa desde la interfaz de Kibana
 ## 📚 Documentación y Recursos
 
 - [Tutorial de instalación paso a paso (PDF)](./Documentacion/Tutorial de Instalación y Configuración de SOTYPOT.pdf)
-- [Informe técnico y memoria del proyecto](./Documentacion/[VERSION 1.24 BETA] SotyPot_ Sistema de Detección y Registro de Ataques en Redes Empresariales.pdf)
+- [Informe técnico y memoria del proyecto](.//Documentacion/%5BVERSION%201.24%20BETA%5D%20SotyPot_%20Sistema%20de%20Detección%20y%20Registro%20de%20Ataques%20en%20Redes%20Empresariales.pdf)
 - [Repositorio base de T-Pot CE](https://github.com/telekom-security/tpotce)
 
 ---

@@ -25,7 +25,7 @@ Inseguro: http://localhost:8888
 1. Clona este repositorio y navega a la carpeta `sotypot-landing`
 2. Ejecuta `sotypot-landing/create-setup.sh` (Puedes editarlo, son archivos de configuración)
 3. Lanza el contenedor con: `docker-compose up -d` dentro de sotypot-landing.
-4. Abre el navegador y accede a http://localhost:8443
+4. Abre el navegador y accede a http://localhost:8887
 
 
 

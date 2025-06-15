@@ -46,7 +46,7 @@ sudo apt update && sudo apt install -y curl
 ### 2. 🛠 Ejecutar el instalador automático
 
 ```bash
-env bash -c "$(curl -sL https://github.com/Davidhernan3/sotypot/raw/main/install.sh)"
+bash ./tpotce-master/install.sh)"
 ```
 
 Esto descargará y configurará automáticamente todos los servicios y contenedores.
@@ -62,7 +62,7 @@ Esto descargará y configurará automáticamente todos los servicios y contenedo
 
 ### 4. 🌐 Landing Page
 
-- Navega a `http://<TU_IP>:8888` para acceder a la landing personalizada.
+- Navega a `http://<TU_IP>:8887` para acceder a la landing personalizada.
 - Si el puerto 8888 está en uso, edita `docker-compose.yml`.
 - Para relanzar:
 
@@ -144,7 +144,7 @@ Exporta/Importa desde la interfaz de Kibana
 | 1.2      | ✅ Beta     | Landing personalizada                                      |
 | 1.2.5    | ✅ Validada | Pruebas con Nmap, Hydra, Metasploit                        |
 | 1.3      | ✅ Validada | SSL + Auth                                                 |
-| 1.4      | 🚧 Futuro   | Sistema de alertas por Correo/Bot Telegram y API REST      |
+| 1.4      | ✅ Validada | Documentacion Español + Sistema de alertas por Correo      |
 | 1.5      | 🚧 Futuro   | Dashboard dinámico + integración Grafana/elastic en Lading |
 |----------|-------------|------------------------------------------------------------|
 
@@ -158,14 +158,14 @@ Exporta/Importa desde la interfaz de Kibana
 ✅ Escaneo con Nikto reflejado en Kibana  
 ✅ Exploit Metasploit bloqueado y registrado  
 
-> 📄 Ver informe completo: [`SotyPot_Informe_Pruebas_Completo_18052025`](./SotyPot_Informe_Pruebas_Completo_18052025.pdf)
+> 📄 Ver informe completo: [`SotyPot_Informe_Pruebas_Completo_18052025`](./Documentacion/SotyPot_Informe_Pruebas_Completo_18052025.pdf)
 
 ---
 
 ## 📚 Documentación y Recursos
 
-- [Tutorial de instalación paso a paso (PDF)](./Tutorial%20de%20Instalación%20y%20Configuración%20de%20SOTYPOT.pdf)
-- [Informe técnico y memoria del proyecto](./[VERSION%201.25%20BETA]%20SotyPot_%20Sistema%20de%20Detección%20y%20Registro%20de%20Ataques%20en%20Redes%20Empresariales.pdf)
+- [Tutorial de instalación paso a paso (PDF)](./Documentacion/%20de%20Instalación%20y%20Configuración%20de%20SOTYPOT.pdf)
+- [Informe técnico y memoria del proyecto](./Documentacion/[VERSION%201.25%20BETA]%20SotyPot_%20Sistema%20de%20Detección%20y%20Registro%20de%20Ataques%20en%20Redes%20Empresariales.pdf)
 - [Repositorio base de T-Pot CE](https://github.com/telekom-security/tpotce)
 
 ---

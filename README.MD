@@ -46,7 +46,7 @@ sudo apt update && sudo apt install -y curl
 ### 2. 🛠 Ejecutar el instalador automático
 
 ```bash
-bash ./tpotce-master/install.sh)"
+bash ./tpotce-master/install.sh
 ```
 
 Esto descargará y configurará automáticamente todos los servicios y contenedores.

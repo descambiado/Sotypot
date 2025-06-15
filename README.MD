@@ -2,7 +2,7 @@
 
 ![SotyPot Logo](https://i.imgur.com/bLFfnu3.png)
 
-**SotyPot** es una plataforma educativa basada en honeypots, desarrollada por [@Davidhernan3](https://github.com/Davidhernan3) como parte de su Proyecto de Fin de Grado para el ciclo de **Administración de Sistemas Informáticos en Red (ASIR)**.
+**SotyPot** es una plataforma educativa basada en honeypots, desarrollada por [@descambiado](https://github.com/descambiado) (David Hernández Jiménez) como parte de su Proyecto de Fin de Grado para el ciclo de **Administración de Sistemas Informáticos en Red (ASIR)**.
 
 Está basada en **T-Pot CE**, una distribución de honeypots todo-en-uno, y adaptada para facilitar el aprendizaje, la observación y la simulación de ciberataques reales de forma segura.
 
@@ -164,8 +164,8 @@ Exporta/Importa desde la interfaz de Kibana
 
 ## 📚 Documentación y Recursos
 
-- [Tutorial de instalación paso a paso (PDF)](./Documentacion/%20de%20Instalación%20y%20Configuración%20de%20SOTYPOT.pdf)
-- [Informe técnico y memoria del proyecto](./Documentacion/[VERSION%201.25%20BETA]%20SotyPot_%20Sistema%20de%20Detección%20y%20Registro%20de%20Ataques%20en%20Redes%20Empresariales.pdf)
+- [Tutorial de instalación paso a paso (PDF)](./Documentacion/Tutorial de Instalación y Configuración de SOTYPOT.pdf)
+- [Informe técnico y memoria del proyecto](./Documentacion/[VERSION 1.24 BETA] SotyPot_ Sistema de Detección y Registro de Ataques en Redes Empresariales.pdf)
 - [Repositorio base de T-Pot CE](https://github.com/telekom-security/tpotce)
 
 ---

@@ -27,6 +27,11 @@ Inseguro: http://localhost:8888
 3. Lanza el contenedor con: `docker-compose up -d` dentro de sotypot-landing.
 4. Abre el navegador y accede a http://localhost:8887
 
+> **Importante:** `create-setup.sh` genera `dist/htpasswd/.htpasswd` y `dist/certs/` con una
+> contraseña y un certificado autofirmado de ejemplo (usuario `sotypot`, contraseña `sotypot!`).
+> Ninguno de los dos se distribuye ya en el repositorio: cambia la contraseña en el script antes de
+> exponer la landing más allá de `localhost`.
+
 
 
 ## Estructura
